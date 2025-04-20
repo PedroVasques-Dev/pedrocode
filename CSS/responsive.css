@@ -1,0 +1,156 @@
+/* Responsive styles */
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem 2rem;
+    }
+
+    .nav-container img {
+        width: 80px;
+        right: 0;
+    }
+
+    .title-menu {
+        gap: 20px;
+    }
+
+    .title-menu li {
+        left: 0;
+        font-size: 18px;
+    }
+
+    main {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 3rem;
+        left: 0;
+        right: 0;
+    }
+
+    main img {
+        max-width: 80%;
+    }
+
+    main h2 {
+        font-size: 32px;
+    }
+
+    main p {
+        font-size: 18px;
+    }
+
+    .button-container {
+        gap: 10px;
+    }
+
+    .custom-btn {
+        padding: 14px 40px;
+        font-size: 14px;
+    }
+
+    .custom-btn a {
+        font-size: 18px;
+    }
+
+    .sobre-container {
+        gap: 5rem;
+        padding: 3rem;
+        left: 0;
+        right: 0;
+    }
+
+    .sobre-container h2 {
+        font-size: 28px;
+    }
+
+    .img-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .img1 img {
+        max-width: 180px !important;
+        height: auto;
+    }
+
+    .img1 h3 {
+        font-size: 24px;
+    }
+
+    .img1 h4 {
+        font-size: 14px;
+    }
+
+    .img1 img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 1rem 1rem;
+    }
+
+    .nav-container img {
+        width: 60px;
+    }
+
+    .title-menu {
+        gap: 15px;
+    }
+
+    .title-menu li {
+        font-size: 16px;
+    }
+
+    main {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    main h2 {
+        font-size: 24px;
+    }
+
+    main p {
+        font-size: 16px;
+    }
+
+    .button-container {
+        gap: 8px;
+    }
+
+    .custom-btn {
+        padding: 12px 30px;
+        font-size: 12px;
+    }
+
+    .custom-btn a {
+        font-size: 16px;
+    }
+
+    .sobre-container {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .sobre-container h2 {
+        font-size: 22px;
+    }
+
+    .img-container {
+        gap: 1rem;
+    }
+
+    .img1 {
+        padding: 20px;
+    }
+
+    .img1 h3 {
+        font-size: 20px;
+    }
+
+    .img1 h4 {
+        font-size: 12px;
+    }
+}

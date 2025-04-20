@@ -152,7 +152,7 @@ main p {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 200px;
+    gap: 10px;
     background: white;
 }
 
@@ -165,7 +165,16 @@ main p {
     border-style: solid;
     border-radius: 7px;
     padding: 50px;
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .img-container {
+        flex-direction: column;
+        gap: 3rem;
+        align-items: center;
+    }
 }
 
 .img1 img {

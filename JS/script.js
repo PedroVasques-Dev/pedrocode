@@ -1,71 +1,66 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Inject animation CSS styles dynamically
-    const style = document.createElement('style');
-    style.textContent = `
-        .pre-animate {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .animate-fade-slide {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .custom-btn {
-            color: #ffffff;
-            font-size: 24px;
-        }
-        .custom-btn:hover {
-            background-color: #574fd6;
-            color: #ffffff;
-        }
-    `;
-    document.head.appendChild(style);
+// Efeito de digitação no título
+const titulo = document.querySelector('.content-main h1');
+const texto = titulo.textContent;
+titulo.textContent = '';
+let i = 0;
 
-    // Animate nav logo on page load
-    const navLogo = document.querySelector('.nav-container img');
-    if (navLogo) {
-        navLogo.style.opacity = 0;
-        navLogo.style.transform = 'translateY(-20px)';
-        setTimeout(() => {
-            navLogo.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            navLogo.style.opacity = 1;
-            navLogo.style.transform = 'translateY(0)';
-        }, 100);
+function digitar() {
+    if (i < texto.length) {
+        titulo.textContent += texto.charAt(i);
+        i++;
+        setTimeout(digitar, 60);
     }
+}
 
-    // Button hover animation
-    const buttons = document.querySelectorAll('.custom-btn');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            button.style.transition = 'transform 0.3s ease';
-            button.style.transform = 'scale(1.1)';
-        });
-        button.addEventListener('mouseleave', () => {
-            button.style.transform = 'scale(1)';
-        });
+window.addEventListener('load', digitar);
+
+// Scroll suave nos links do menu
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
     });
+});
 
-    // Intersection Observer for fade/slide-in animations on scroll
-    const observerOptions = {
-        threshold: 0.1
-    };
+// Efeito de aparecer ao rolar
+const animarAoScroll = document.querySelectorAll('.content-main, .image-main, .sobre-container, .img1');
 
-    const animateOnScroll = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-slide');
-                observer.unobserve(entry.target);
-            }
-        });
-    };
+function animarElementos() {
+    animarAoScroll.forEach(el => {
+        const topo = el.getBoundingClientRect().top;
+        const altura = window.innerHeight;
 
-    const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+        if (topo < altura - 100) {
+            el.style.opacity = 1;
+            el.style.transform = 'translateY(0)';
+        } else {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(50px)';
+        }
+    });
+}
 
-    // Elements to animate on scroll
-    const elementsToAnimate = document.querySelectorAll('main, .sobre-container .img1');
-    elementsToAnimate.forEach(el => {
-        el.classList.add('pre-animate');
-        observer.observe(el);
+window.addEventListener('scroll', animarElementos);
+window.addEventListener('load', animarElementos);
+
+// Ripple effect nos botões
+document.querySelectorAll('.main-button, .contact-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple-effect';
+        this.appendChild(ripple);
+
+        const maxDim = Math.max(this.clientWidth, this.clientHeight);
+        ripple.style.width = ripple.style.height = maxDim + 'px';
+
+        const rect = this.getBoundingClientRect();
+        ripple.style.left = (e.clientX - rect.left - maxDim / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - maxDim / 2) + 'px';
+
+        setTimeout(() => ripple.remove(), 600);
     });
 });

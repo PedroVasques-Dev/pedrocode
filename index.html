@@ -7,47 +7,56 @@
         <meta name="keywords" content="dev, developer, html, css, js, javascript, web, webdev, front-end">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pedro Code - Início</title>
-        <link rel="stylesheet" href="CSS/index.css">
-        <link rel="stylesheet" href="CSS/responsive.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
         <link rel="shortcut icon" href="Assets/Logo.ico" type="image/x-icon">
+        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/mobile.css">
     </head>
 
     <body>
-        <nav class="nav-container" >
-            <img src="Assets/Logo2.png" alt="">
-            <ul class="title-menu">
-                <li>
-                    <a href="index.html">Início</a>
-                </li>
-                <li>
-                    <a href="https://discord.gg/SwS7Z3GW6B">Contato</a>
-                </li>
-            </ul>
-        </nav>
+
+        <header>
+            <nav class="navbar">
+                <div class="logo"><img src="Assets/Logo2.png" alt="Pedro Code Logo"></div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                </ul>
+                <a href="https://discord.gg/YAjQjbcSSR" class="contact-btn">Contato</a>
+            </nav>
+        </header>
 
         <main>
-            <img src="Assets/Programmer-PNG-Images-HD.png" alt="">
-            <section>
-                <h2>Seja bem-vindo!</h2> 
-                <p>
-                   Desenvolvedor front-end com foco em HTML, CSS e JavaScript. 
-
-                   Crio interfaces modernas, responsivas e funcionais, sempre 
-                   priorizando a experiência do usuário e a performance. 
-
-                   Tenho experiência em transformar designs em sites reais, 
-                   com atenção aos detalhes, animações suaves e código limpo.
-                </p>
-                
-                <div class="button-container">
-                    <button class="custom-btn" onclick="window.location.href='https://discord.gg/SwS7Z3GW6B';">Contato</button>
+            <div id="inicio" class="main-container">
+                <section class="content-main">
+                    <h1>Bem-vindo ao meu Portfólio!</h1>
+                    <p>Sou um desenvolvedor front-end especializado em tecnologias como HTML, CSS e JavaScript. Aqui você encontrará meus projetos, habilidades e informações sobre mim.</p>
+                    <div class="content-button">
+                        <a href="#" class="main-button">Mais informações</a>
+                    </div>
+                </section>
+                <div class="image-main">
+                    <img src="Assets/image.png" alt="Desenvolvedor front-end trabalhando">
                 </div>
-            </section>
+            </div>
         </main>
 
-        <section class="sobre-container">
-            <h2>Sobre mim</h2>
+        <section id="sobre" class="sobre-container">
+            <div class="sobre-content">
+                <h2>Sobre Mim</h2>
+                <p>
+                    Olá, eu sou o Pedro! Um apaixonado por desenvolvimento web com foco em criar experiências digitais incríveis e funcionais.
+                    Minha jornada na programação começou em 2024 e desde então venho me especializando em tecnologias modernas para o desenvolvimento front-end, 
+                    sempre buscando aprender e me atualizar com as melhores práticas.
+                </p>
+            </div>
+            <div class="icon-dev">
+                <img src="Assets/developer.png" alt="Ícone de desenvolvedor">
+            </div>
+        </section>
+
+        <section id="cursos" class="cursos-container">
             <div class="img-container">
                 <div class="img1">
                     <img src="Assets/CSS3.png" alt=""> <br>
@@ -86,9 +95,11 @@
         </section>
 
         <footer>
-            Pedro Code - &copy; All Rights Reserved 2025
+            <p>Desenvolvedor web apaixonado por criar soluções inovadoras e funcionais.</p>
+            © 2025 Pedro Code - All Rights Reserved
         </footer>
-    </body>
 
-    <script src="JS/script.js"></script>
+        <script src="JS/script.js"></script>
+
+    </body>
 </html>
